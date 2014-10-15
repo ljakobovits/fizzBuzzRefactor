@@ -1,14 +1,11 @@
-$(document).ready(function() {
-
-
-$('.start').mousedown(function() {
+var fizzCount = function(userNum) {
 
 var counter = 1;
 
 
-while (counter <= 100)
+while (counter <= userNum)
 {
-	/* divisible by 3? */
+	
 	if ((counter % 3) === 0) {
 
 		if ((counter % 5) === 0) {
@@ -27,9 +24,49 @@ while (counter <= 100)
 	}
 	counter++;
 };
+}
+
+$(document).ready(function() {
+
+	
+
+
+$('.start').mousedown(function() {
+
+
+var number = prompt("Please enter a number");
+
+
+if (number.indexOf(".")> -1) {
+	while (number.indexOf(".")> -1) {
+	number = prompt("Please enter an integer");
+		while (isNaN(+number)) {
+			number = prompt("Please enter a number");
+		}
+
+	}
+}
+
+else if (isNaN(+number)) {
+	while (isNaN(+number)) {
+		number = prompt("Please enter a number");
+		while (number.indexOf(".")> -1) {
+			number = prompt("Please enter an integer");
+		}
+
+	}
+}
+
+document.write("<strong>You entered "+ number+ "<p></p></strong>");
+
+
+fizzCount(number);
+
+
+
+
   
-
-
 });
+
 
 });
